@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Lobby of Phobias</title>
+    <meta name="description" content="Phobia Fighter WebVR App">
+    <script src="js/aframe.min.js"></script>
+    <link rel="stylesheet" href="css/animate.css" />
+    <link rel="stylesheet" href="css/style.css" />
+
+</head>
+
+<body>
+    <a-scene>
+        <!--<a-scene vr-mode-ui="enabled: false">-->
+
+        <!-- preload assets -->
+        <a-assets>
+			<img id="pano" src="assets/lobby.png">
+            <img id="heights" src="assets/heightsFear.png">
+            <img id="school" src="assets/schoolFear.png">
+            <img id="speaking" src="assets/speakingFear.png">
+            <img id="spider" src="assets/spiderFear.png">
+            <img id="flying" src="assets/flyingFear.png">
+            <img id="crowd" src="assets/crowdFear.png">
+        </a-assets>
+
+        <!-- Fears Selectors -->
+
+		<a-image id="heightVR" src="#heights" width="20" height="16" position="0 3 -15" rotation="0 0 0" scale="0.3 0.3 0.3"></a-image>
+		<a-image id="spiderVR" src="#spider" width="20" height="16" position="-13 3 -7.5" rotation="0 60 0" scale="0.3 0.3 0.3"></a-image>
+		<a-image id="schoolVR" src="#school" width="20" height="16" position="-13 3 7.5" rotation="0 -240 0" scale="0.3 0.3 0.3"></a-image>
+		<a-image id="speakingVR" src="#speaking" width="20" height="16" position="0 3 15" rotation="0 180 0" scale="0.3 0.3 0.3"></a-image>
+		<a-image id="crowdVR" src="#crowd" width="20" height="16" position="13 3 7.5" rotation="0 240 0" scale="0.3 0.3 0.3"></a-image>
+		<a-image id="flyingVR" src="#flying" width="20" height="16" position="13 3 -7.5" rotation="0 -60 0" scale="0.3 0.3 0.3"></a-image>
+		
+        <!-- lights/sky/camera -->
+        <a-light type="spot" color="#333" position="-20 0 0"></a-light>
+        <a-light type="point" color="#AAA" position="0 5 0"></a-light>
+
+        <a-sky src="#pano">
+		</a-sky>
+		
+		<!-- Linticular -->
+		<a-entity position="0 0 0">
+			<a-camera>
+				<a-cursor color="#fff" fuse="true" timeout="1500"></a-cursor>
+			</a-camera>
+		</a-entity>
+		
+    </a-scene>
+
+    <div id="lobby" >
+    </div>
+
+    <script>
+
+		// button scripts
+		var ht = document.querySelector('#heightVR');
+		var sd = document.querySelector('#spiderVR');
+		var sc = document.querySelector('#schoolVR');
+		var sp = document.querySelector('#speakingVR');
+		var cr = document.querySelector('#crowdVR');
+		var fl = document.querySelector('#flyingVR');
+		
+		// linked in url
+		ht.addEventListener('click', function () {
+			window.open("heights.html");
+		}); 
+		sd.addEventListener('click', function () {
+			window.open("spiders.html");
+		}); 
+		sc.addEventListener('click', function () {
+			window.open("school.html");
+		}); 
+		sp.addEventListener('click', function () {
+			window.open("speaking.html");
+		}); 
+		cr.addEventListener('click', function () {
+			window.open("crowds.html");
+		}); 
+		fl.addEventListener('click', function () {
+			window.open("flying.html");
+		}); 
+		
+		
+    </script>
+</body>
+
+</html>

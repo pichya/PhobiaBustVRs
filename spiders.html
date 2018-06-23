@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Fear of Spiders</title>
+    <meta name="description" content="WebVR Fear of Spiders">
+    <script src="js/aframe.min.js"></script>
+    <link rel="stylesheet" href="css/animate.css" />
+    <link rel="stylesheet" href="css/style.css" />
+
+</head>
+
+<body>
+    <a-scene>
+        <!--<a-scene vr-mode-ui="enabled: false">-->
+
+        <!-- preload assets -->
+        <a-assets>
+			<img id="pano" src="assets/spiders1.png">
+            <img id="stop" src="assets/stop2.png">
+			<img id="levelup" src="assets/up.png">
+			<img id="leveldown" src="assets/down.png">
+        </a-assets>
+
+        <!-- Stop -->
+		<a-image id="stopimage" src="#stop" width="8" height="8" position="0 -10 0" rotation=-90 0 0" scale="0.5 0.5 0.5"></a-image>
+
+		<!-- Levels -->
+		<a-image id="upimage" src="#levelup" width="3" height="3" position="0 -10 -3.5" rotation=-90 0 0" scale="0.5 0.5 0.5"></a-image>
+		<a-image id="downimage" src="#leveldown" width="3" height="3" position="0 -10 3.5" rotation=-90 0 0" scale="0.5 0.5 0.5"></a-image>
+		
+        <!-- lights/sky/camera -->
+        <a-light type="spot" color="#333" position="-20 0 0"></a-light>
+        <a-light type="point" color="#AAA" position="0 5 0"></a-light>
+
+        <a-sky id="sky" src="#pano">
+		</a-sky>		
+		
+		<!-- Linticular -->
+		<a-entity position="0 0 0">
+			<a-camera>
+				<a-cursor color="#fff" fuse="true" timeout="1500"></a-cursor>
+			</a-camera>
+		</a-entity>
+		
+    </a-scene>
+
+    <div id="spiders">
+
+    </div>
+
+
+    <script>
+		var spidersky = document.querySelector('#sky');
+		// button scripts
+		var st = document.querySelector('#stopimage');
+		var up = document.querySelector('#upimage');
+		var dn = document.querySelector('#downimage');
+		// nav to url
+		st.addEventListener('click', function () {
+			window.open("index.html");
+		}); 
+		// 
+		up.addEventListener('click', function () {
+			spidersky.setAttribute('src', "assets/spiders3.png");
+		}); 
+		dn.addEventListener('click', function () {
+			spidersky.setAttribute('src', "assets/spiders1.png");
+		}); 
+
+    </script>
+</body>
+
+</html>
